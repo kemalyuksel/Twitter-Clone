@@ -1,0 +1,47 @@
+﻿@model TweetAdddto
+
+@{
+    Layout = "_RenderLayout";
+}
+
+<div class="card text-center mb-2 border-0">
+    <div class="card-header bg-white">
+        <b class="float-left">Home</b>
+    </div>
+    <div class="card-body">
+
+        <span class="input-group-text bg-white border-0"><img src="~/img/userpp/@TempData["pp"]" class="rounded-circle float-left mb-5" style="width:50px" alt="Alternate Text" /></span>
+
+        <form class="w-75" method="post" asp-action="AddTweet" asp-controller="Tweet">
+
+
+            <div class="form-group" style="width:620px;margin-top:-50px;margin-left:-20px">
+                <textarea asp-for="Post" id="content" class="form-control border-0" placeholder="What's happening?"></textarea>
+                <button type="submit" class="text-center float-right btn btn-info border-0 font-weight-bold">Tweet</button>
+            </div>
+
+            
+
+            <div class="card-footer text-muted bg-white border-0">
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+
+@section Css{
+    <link href="/lib/Trumbowyg/dist/ui/trumbowyg.min.css" rel="stylesheet" />
+}
+
+@section Script{
+    <script type="text/javascript" src="/lib/Trumbowyg/dist/trumbowyg.min.js"></script>
+
+    <script>
+
+        $('#content').trumbowyg();
+    </script>
+}

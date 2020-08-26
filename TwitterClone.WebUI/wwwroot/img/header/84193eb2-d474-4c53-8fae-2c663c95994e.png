@@ -1,0 +1,5 @@
+_notificationService.Create(new Notification
+                    {
+                        Description = $"{user.Name} {user.Surname} yeni bir rapor ekledi.",
+                        AppUserId = admin.Id,
+                    });

@@ -1,0 +1,38 @@
+﻿
+
+@{
+
+    var active = TempData["Active"]?.ToString();
+    int count = ViewBag.notifyCount;
+
+}
+
+<ul class="list-group text-left">
+
+    <li class="list-group-item" id="leftList">
+        <i class="fas fa-home  @(active == "Home"?"active":"") ml-1 mr-2"></i>
+        <a id="link" asp-action="Index" asp-controller="Home" asp-area="Member">Home</a>
+    </li>
+
+
+    <li class="list-group-item" id="leftList">
+        <i class="fas fa-bell  @(active == "Notification"?"active":"")  @(count > 0 ? "text-warning":"")  ml-1 mr-2">
+        </i><a id="link" asp-action="Index" asp-controller="Notification" asp-area="Member">Notifications</a>
+    </li>
+
+    <li class="list-group-item" id="leftList">
+        <i class="fas fa-envelope  @(active == "Message"?"active":"") ml-1 mr-2">
+        </i><a id="link" asp-action="Index" asp-controller="Message" asp-area="Member">Messages</a>
+    </li>
+
+    <li class="list-group-item" id="leftList">
+        <i class="fas fa-user  @(active == "Profile"?"active":"") ml-1 mr-2">
+        </i><a id="link" asp-action="Index" asp-controller="Profile" asp-area="Member">Profile</a>
+    </li>
+
+    <li class="list-group-item card-footer" id="leftList">
+        <i class="fas fa-sign-out-alt  text-dark ml-1 mr-2">
+        </i><a id="link" asp-action="LogOut" asp-area="" asp-controller="Home">Log out</a>
+    </li>
+
+</ul>

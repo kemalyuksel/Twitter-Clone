@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @RenderSection("Css", false)
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/UserTweetsLayout.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+
+
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-2 mt-3">
+                <a asp-action="Index" asp-controller="Home" asp-area="Member">
+                    <img src="~/img/twitter-icon.png" class="roundedd-block mb-3" style="width:35px" alt="sylvester">
+                </a>
+
+
+                @await Component.InvokeAsync("LeftNavbar")
+
+
+            </div>
+
+
+
+
+
+            <div class="col-md-7">
+                @RenderBody()
+            </div>
+
+
+
+
+            <div class="col-md-3">
+
+                <form class="form-inline md-form mr-auto d-block mb-4 mt-2" method="get" asp-action="Search" asp-controller="Home">
+                    <input class="form-control" id="search" name="s" type="text" placeholder=" Search Twitter" aria-label="Search">
+                </form>
+
+
+                @await Component.InvokeAsync("WhoToFollow")
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/font-awesome/js/all.min.js"></script>
+    @RenderSection("Script", false)
+
+
+</body>
+</html>

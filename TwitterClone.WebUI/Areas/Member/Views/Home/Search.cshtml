@@ -1,0 +1,57 @@
+﻿@model List<AppUserListDto>
+
+@{
+    ViewData["Title"] = "Search";
+
+}
+
+
+<div class="card mt-3">
+
+    <div class="card-header">
+        <h5 class="text-left"> <i class="fas fa-search"></i> @ViewBag.key </h5>
+    </div>
+
+
+    <ul class="list-group list-group-flush">
+
+
+
+        @foreach (var item in Model)
+        {
+            if (item.Id != ViewBag.ıd)
+            {
+                <li class="list-group-item">
+                    <span>
+                        <a asp-action="VisitorProfile" asp-route-id="@item.Id" asp-controller="Profile" asp-area="Member">
+                            <img src="~/img/userpp/@item.ProfilePicture" width="50" class="rounded-circle float-left" alt="Alternate Text" />
+                            <b class="ml-3">@(item.Name +" "+ item.SurName)</b>
+                        </a>
+                        <br />
+
+                        <b class="ml-3 text-muted">@($"@{item.UserName}")</b>
+                        <br />  
+                        <span class="ml-3">@item.Biography</span>
+
+                        <a asp-action="MessageDetail" asp-controller="Message" asp-area="Member">
+
+                            <span class="badge badge-info float-right text-right p-2 d-block">Follow</span>
+
+
+                        </a>
+
+
+                    </span>
+
+                </li>
+            }
+
+
+        }
+
+
+
+
+    </ul>
+
+</div>

@@ -1,0 +1,28 @@
+﻿.form-control {
+    background-color: rgb(245, 248, 250);
+    border-bottom-width: 2px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+    .form-control:hover {
+        border-bottom-color: cadetblue;
+    }
+
+#login:hover {
+    background-color: rgb(29, 161, 242);
+}
+
+#login {
+    background-color: deepskyblue;
+    border-radius: 50px;
+    font-weight: 500;
+    padding: 6px;
+}
+
+.btn-info {
+    background-color: skyblue !important;
+    border-radius: 40px !important;
+    padding: 8px !important;
+    width: 80px !important;
+}

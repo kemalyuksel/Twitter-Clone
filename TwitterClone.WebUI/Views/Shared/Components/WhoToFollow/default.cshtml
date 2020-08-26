@@ -1,0 +1,49 @@
+﻿@model List<AppUserListDto>
+
+
+<style>
+
+    .card {
+        border-radius: 10px 10px 10px 10px;
+        margin-left: 0px;
+    }
+
+    .rounded-circle {
+        height: 50px;
+    }
+
+    #follow {
+        width: 50px;
+    }
+</style>
+
+<div class="card mt-3 ml-0" style="width: 18rem;">
+
+    <div class="card-header">
+        <h5 class="text-left"><b>Who to follow</b></h5>
+    </div>
+
+
+
+    <ul class="list-group list-group-flush">
+
+        @foreach (var user in Model)
+        {
+
+            <li class="list-group-item">
+                <span>
+                    <a asp-action="VisitorProfile" asp-route-id="@user.Id" asp-controller="Profile" asp-area="Member">
+                        <img src="~/img/userpp/@user.ProfilePicture" width="50" class="rounded-circle float-left" alt="Alternate Text" />
+                        <b class="ml-3">@(user.Name+" "+ user.SurName)</b>
+                    </a>
+                    <br />
+                    <b class="ml-3 text-muted small">@($"@{user.UserName}")</b>
+                    <button id="follow" class="text-center float-right btn btn-info border-0 btn-sm p-0">Follow</button>
+                </span>
+            </li>
+
+        }
+
+    </ul>
+
+</div>

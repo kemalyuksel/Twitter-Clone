@@ -1,0 +1,94 @@
+﻿#pp {
+    margin-top: -80px;
+    width: 150px;
+    border-color: white;
+    border-width: 5px;
+    border-style: solid;
+    height: 150px !important;
+}
+
+.btn-info {
+    background-color: skyblue;
+    border-radius: 40px;
+    padding: 8px;
+    width: 80px;
+}
+
+#content {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
+
+#post {
+    height: 500px;
+    padding: 10px;
+}
+
+.card-text {
+    margin-top: -20px !important;
+    line-height: 1.25;
+}
+
+#rightList {
+    border: 0 !important;
+}
+
+
+#leftList {
+    border: 0 !important;
+    font-size: 16px;
+    font-weight: 500;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    font-family: "Lucida Console", Courier, monospace;
+}
+
+    #leftList:hover {
+        background-color: skyblue;
+        border-radius: 40px;
+        color: white;
+    }
+
+#link {
+    text-decoration-line: none;
+    color: black;
+}
+
+.active {
+    color: dodgerblue;
+}
+
+#search {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 40px;
+    background-color: #f2f2f2;
+}
+
+
+
+p > img {
+    /*display: block;
+    margin-left: auto;
+    margin-right: auto;
+   
+    
+    margin-bottom: -30px;*/
+    padding-top: 10px;
+    margin-top: -10px !important;
+    width: 100%;
+    border-radius: 10px 4px 10px 10px;
+    min-height: 250px;
+    max-height: 350px;
+}
+
+
+.card-body > p {
+
+    line-height:20px;
+    padding:0px;
+    margin-bottom:10px;
+
+}

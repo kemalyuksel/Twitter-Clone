@@ -1,0 +1,120 @@
+﻿@model AppUserProfileUpdateDto
+
+@{
+    ViewData["Title"] = "UpdateHeader";
+}
+
+<style>
+
+    #Header {
+        height: 200px;
+    }
+</style>
+
+
+
+
+@if (@TempData["updateMessage"] != null)
+{
+
+    <h5 class="text-success text-center">@TempData["updateMessage"]</h5>
+
+}
+
+<div class="card-body">
+    <h5 class="card-title mb-3"><b>@(Model.Name + " " + Model.SurName)</b></h5>
+</div>
+<div>
+    <img class="card-img-bottom" id="Header" src="~/img/header/@Model.HeaderPicture" alt="Card image cap">
+    <img src="~/img/userpp/@Model.ProfilePicture" class="rounded-circle card-img ml-3" id="pp" alt="" />
+</div>
+
+
+<form class="w-75 mx-auto p-3 " asp-action="UpdateHeader" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="@Model.Id" />
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Header Picture</label>
+                <input type="file" name="HeaderPic" id="HeaderPic" class="form-control-file">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Profile Picture</label>
+                <input type="file" name="Picture" id="Picture" class="form-control-file">
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div id="preview2" style="display:none!important;">
+                <h5>Selected Header</h5>
+                <img id="picPreview2" src="" class="img-fluid mx-auto text-center img-thumbnail shadow" style="height:10rem!important;width:150px">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div id="preview" style="display:none!important;">
+                <h5>Selected Profile</h5>
+                <img id="picPreview" src="" class="rounded-circle mx-auto text-center img-thumbnail shadow" style="height:10rem!important;width:150px">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Biography"></label>
+        <input asp-for="Biography" class="form-control" />
+    </div>
+
+
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="SurName"></label>
+        <input asp-for="SurName" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block float-right">SAVE</button>
+
+
+</form>
+
+
+
+
+
+@section Script{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Picture").change(function (e) {
+                $("#preview").show();
+                $("#picPreview").attr('src', URL.createObjectURL(e.target.files[0]));
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#HeaderPic").change(function (e) {
+                $("#preview2").show();
+                $("#picPreview2").attr('src', URL.createObjectURL(e.target.files[0]));
+            });
+        });
+    </script>
+
+}

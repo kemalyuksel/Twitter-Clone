@@ -1,0 +1,44 @@
+﻿@model List<TweetListDto>
+
+
+
+    
+
+@foreach (var tweet in Model)
+{
+
+    <div class="card mb-3 border-top-0">
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-white border-0">
+                    <a asp-route-id="@tweet.AppUserId" asp-action="VisitorProfile" asp-controller="Profile">
+                        <img src="~/img/userpp/@tweet.AppUser.ProfilePicture" class="rounded-circle float-left mr-2" style="width:50px" alt="Alternate Text" />
+                    </a>
+                </span>
+            </div>
+            <b class="float-left mt-1">@(tweet.AppUser.Name+" "+ tweet.AppUser.SurName)</b>
+            <span class="text-muted mt-1 ml-2">@($"@{tweet.AppUser.UserName}") | @tweet.PostedTime.ToShortDateString()  @tweet.PostedTime.ToShortTimeString()</span>
+        </div>
+
+        <div class="card-body mt-0">
+            <p class="card-text pl-4">
+                @Html.Raw(tweet.Post)
+            </p>
+        </div>
+
+
+        <div class="card-footer  text-center text-muted bg-white border-top-0">
+            <i class="fas fa-heart float-left"></i>
+            <i class="fas fa-retweet float-right"></i>
+
+        </div>
+
+
+    </div>
+
+
+}
+
+
+

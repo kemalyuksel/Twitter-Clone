@@ -1,0 +1,12 @@
+﻿
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+@await Html.PartialAsync("AddTweet")
+
+@await Component.InvokeAsync("TweetListWUsers")
+

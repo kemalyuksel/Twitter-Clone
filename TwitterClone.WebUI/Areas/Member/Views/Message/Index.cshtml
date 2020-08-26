@@ -1,0 +1,59 @@
+﻿@model List<UserMessagesDto>
+
+@{
+    ViewData["Title"] = "Index";
+
+    List<int> list = new List<int>();
+
+}
+
+<div class="card mt-3">
+
+    <div class="card-header">
+        <h5 class="text-left"><b>Messages</b></h5>
+    </div>
+
+
+
+    <ul class="list-group list-group-flush">
+
+
+        @foreach (var item in Model)
+        {
+
+            if (!list.Contains(item.AppUserId))
+            {
+                list.Add(item.AppUserId);
+
+
+                <li class="list-group-item">
+                    <span>
+                        <img src="~/img/userpp/@item.AppUser.ProfilePicture" width="50" class="rounded-circle float-left" alt="Alternate Text" />
+                        <a asp-action="VisitorProfile" asp-route-id="@item.AppUserId" asp-controller="Profile" asp-area="Member">
+                            <b class="ml-3">@(item.AppUser.Name + " " + item.AppUser.SurName)</b>
+                        </a>
+                        <br />
+
+                        <b class="ml-3 text-muted">@($"@{item.AppUser.UserName}")</b>
+
+                        <a asp-action="MessageDetail" asp-route-id="@item.AppUserId" asp-controller="Message" asp-area="Member">
+
+                                <span class="badge badge-info float-right text-right p-2 d-block">Read Message</span>
+
+
+                        </a>
+
+
+                    </span>
+
+                </li>
+            }
+
+        }
+
+
+
+    </ul>
+
+</div>
+

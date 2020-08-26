@@ -1,0 +1,84 @@
+﻿@model AppUserProfileHeaderDto
+
+
+<style>
+
+    #Header {
+        height: 200px;
+    }
+</style>
+
+
+<div class="card-body">
+    <h5 class="card-title mb-3"><b>@(Model.Name + " " + Model.SurName)</b></h5>
+    <p class="card-text"><small class="text-muted ">@Model.Tweets.Count() Tweet</small></p>
+</div>
+<div>
+    <img class="card-img-bottom" id="Header" src="~/img/header/@Model.HeaderPicture" alt="Card image cap">
+    <a asp-action="UpdateHeader" asp-controller="Profile" asp-area="Member"
+       type="button" class="btn btn-primary btn-sm mt-3 mr-3 float-right text-center">
+        Edit Profile
+    </a>
+
+    <img src="~/img/userpp/@Model.ProfilePicture" class="rounded-circle card-img ml-3" id="pp" alt="" />
+</div>
+
+
+
+<div class="p-3">
+    <h4 class="mb-3"><b>@(Model.Name + " " + Model.SurName)</b></h4>
+    <h5 class="card-text"><small class="text-muted ">@($"@{Model.UserName}")</small></h5>
+    <p class="p-1" style="margin-top:-5px;margin-bottom:25px">@Model.Biography</p>
+    <h5 class="card-text mb-4"><i class="fas fa-calendar-alt"></i> <small class="text-muted ">Joined @Model.CreatedTime.ToShortDateString()</small></h5>
+    <p class="card-text"> <b>190</b><small class="text-muted "> Following</small> <b>90</b><small class="text-muted "> Followers</small></p>
+</div>
+
+
+<hr />
+
+
+@*Card*@
+
+@foreach (var tweet in Model.Tweets)
+{
+
+<div class="card mb-3 border-top-0">
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text bg-white border-0"><img src="~/img/userpp/@Model.ProfilePicture" class="rounded-circle float-left mr-2" style="width:50px" alt="Alternate Text" /></span>
+        </div>
+        <b class="float-left mt-1">@(tweet.AppUser.Name+" "+ tweet.AppUser.SurName)</b>
+        <span class="text-muted mt-1 ml-2">@($"@{tweet.AppUser.UserName}") | @tweet.PostedTime.ToShortDateString()  @tweet.PostedTime.ToShortTimeString()</span>
+
+    </div>
+
+
+
+    
+
+
+    <div class="card-body">
+        <form asp-action="DeleteTweet" asp-controller="Tweet" asp-route-id="@tweet.Id" asp-area="Member" class="mr-2" style="margin-top:-30px" method="post">
+            <button class="border-0 bg-danger rounded float-lg-right" type="submit"><i class="fas fa-trash-alt text-white"></i></button>
+        </form>
+
+        <p class="card-text pl-4">
+            @Html.Raw(tweet.Post)
+        </p>
+    </div>
+
+
+    <div class="card-footer  text-center text-muted bg-white border-top-0">
+        <i class="fas fa-heart float-left"></i>
+        <i class="fas fa-retweet float-right"></i>
+
+    </div>
+
+</div>
+
+
+}
+
+@*Card*@
+
