@@ -15,4 +15,8 @@ Little Twitter Clone System Asp.Net Core Mvc - Layered Architecture (Not finishe
 <li>FluentValidator </li>
 
 </ul>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pYtRvRxMlV8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[![twitterclone](https://j.gifs.com/3Q8GyO.gif)](https://www.youtube.com/watch?time_continue=14&v=pYtRvRxMlV8&feature=emb_title)
+
+
+
