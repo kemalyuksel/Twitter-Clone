@@ -1,5 +1,5 @@
 # Twitter-Clone
-Little Twitter Clone System Asp.Net Core Mvc - Layered Architecture (Not finished)
+Twitter Clone System Asp.Net Core Mvc - Layered Architecture (Not finished)
 
 <h3> Technologies implemented </h3>
 <hr>
